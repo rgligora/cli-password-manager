@@ -2,14 +2,23 @@
 
 PYTHON_SCRIPT="./tajnik.py"
 
+#Funkcionalnosti programa se lako mogu testirati pokretanjem ove skripte. 
+#Skripta ce provjeriti postoji li PyCryptodome biblioteka na sustavu i instalira ju ako je potrebno
+#Program podrzava obradu ulaznih argumenata  te prihvaca -h zastavicu kojom se dobivaju informacije o koristenju programa
+#Nakon instalacije PyCryptodome, skripta izvršava niz testova koji pokrivaju osnovne funkcionalnosti programa ('init', 'put', 'get'), kao i naprednije slučajeve poput obrade pogrešaka i provjere integriteta podataka
+#Neki od testova testiraju obradu iznimki u slucaju krive lozinke ili detekcije narusenja integriteta te u slucaju unosa adrese za koju ne postoji unos 
+
+
 
 if ! python3 -c "import Crypto" &> /dev/null; then
-    echo "PyCryptodome is not installed. Attempting to install..."
+
+    echo "PyCryptodome is not installed. Installing"
     pip install pycryptodome
     if [[ $? -ne 0 ]]; then
-        echo "Failed to install PyCryptodome. Please install it manually and rerun the script."
+        echo "PyCryptodome installation failed."
         exit 1
     fi
+
 fi
 
 echo "TAJNIK"
