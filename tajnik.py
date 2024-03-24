@@ -199,4 +199,4 @@ if args.command in ['init', 'put', 'get']:
                 if password != None:
                     print(f'Password for {args.website} is: {password}.')
                 else:
-                    print('Error! Website inccorect.')
+                    print('Error! Website incorrect.')
